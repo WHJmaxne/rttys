@@ -15,4 +15,4 @@ RUN CGO_ENABLED=0 \
 
 FROM alpine:latest
 COPY --from=rttys /rttys-build/rttys /usr/bin/rttys
-ENTRYPOINT ["/usr/bin/rttys"]
+ENTRYPOINT ["/usr/bin/rttys","run","-c","/etc/rttys/rttys.conf"]

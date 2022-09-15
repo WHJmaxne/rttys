@@ -16,7 +16,7 @@ import (
 )
 
 func instanceDB(str string) (*sql.DB, error) {
-	sp := strings.Split(str, "://")
+	sp := strings.Split(str, ":")
 	if len(sp) == 2 {
 		return sql.Open(sp[0], sp[1])
 	} else {
