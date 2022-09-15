@@ -50,9 +50,7 @@ func httpLogin(cfg *config.Config, creds *credentials) bool {
 
 	cnt := 0
   
-	password :=utils.GenUniqueID(creds.Password)
-
-	db.QueryRow("SELECT COUNT(*) FROM account WHERE username = ? AND password = ?", creds.Username, password).Scan(&cnt)
+	db.QueryRow("SELECT COUNT(*) FROM account WHERE username = ? AND password = ?", creds.Username, creds.Password).Scan(&cnt)
 
 	return cnt != 0
 }
@@ -382,9 +380,7 @@ func apiStart(br *broker) {
 			return
 		}
 
-	  password :=utils.GenUniqueID(creds.Password)
-
-		_, err = db.Exec("INSERT INTO account values(?,?,?)", creds.Username, password, isAdmin)
+		_, err = db.Exec("INSERT INTO account values(?,?,?)", creds.Username, creds.Password, isAdmin)
 		if err != nil {
 			log.Error().Msg(err.Error())
 			c.Status(http.StatusInternalServerError)
