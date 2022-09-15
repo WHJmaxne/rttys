@@ -72,7 +72,7 @@ func (br *broker) run() {
 				dev := c.(*device)
 				err := byte(0)
 				msg := "OK"
-
+				log.Info().Msg(dev.token+"-"+br.cfg.Token)
 				if _, ok := br.devices[devid]; ok {
 					log.Error().Msg("Device ID conflicting: " + devid)
 					msg = "ID conflicting"
