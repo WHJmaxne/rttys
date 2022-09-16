@@ -27,7 +27,6 @@ type credentials struct {
 
 var httpSessions *cache.Cache
 
-//go:embed ui/dist
 var staticFs embed.FS
 
 func allowOrigin(w http.ResponseWriter) {
@@ -49,8 +48,10 @@ func httpLogin(cfg *config.Config, creds *credentials) bool {
 	defer db.Close()
 
 	cnt := 0
-  
-	db.QueryRow("SELECT COUNT(*) FROM account WHERE username = ? AND password = ?", creds.Username, creds.Password).Scan(&cnt)
+
+	password := utils.GetMD5(creds.Password)
+
+	db.QueryRow("SELECT COUNT(*) FROM account WHERE username = ? AND password = ?", creds.Username, password).Scan(&cnt)
 
 	return cnt != 0
 }
@@ -354,6 +355,11 @@ func apiStart(br *broker) {
 			return
 		}
 
+		if len(creds.Username) > 16 {
+			c.Status(http.StatusBadRequest)
+			return
+		}
+
 		db, err := instanceDB(cfg.DB)
 		if err != nil {
 			log.Error().Msg(err.Error())
@@ -368,10 +374,6 @@ func apiStart(br *broker) {
 		db.QueryRow("SELECT COUNT(*) FROM account").Scan(&cnt)
 		if cnt == 0 {
 			isAdmin = 1
-		}else{
-			log.Error().Msg("管理员用户已存在，请勿重复注册!")
-			c.Status(http.StatusForbidden)
-			return
 		}
 
 		db.QueryRow("SELECT COUNT(*) FROM account WHERE username = ?", creds.Username).Scan(&cnt)
@@ -380,7 +382,9 @@ func apiStart(br *broker) {
 			return
 		}
 
-		_, err = db.Exec("INSERT INTO account values(?,?,?)", creds.Username, creds.Password, isAdmin)
+		password := utils.GetMD5(creds.Password)
+
+		_, err = db.Exec("INSERT INTO account values(?,?,?)", creds.Username, password, isAdmin)
 		if err != nil {
 			log.Error().Msg(err.Error())
 			c.Status(http.StatusInternalServerError)

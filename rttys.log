@@ -1,0 +1,33 @@
+2022-09-16T11:35:08+08:00 |INFO| main.go:49 |Go Version: go1.19.1
+2022-09-16T11:35:08+08:00 |INFO| main.go:50 |Go OS/Arch: windows/amd64
+2022-09-16T11:35:08+08:00 |INFO| main.go:52 |Rttys Version: 4.0.2
+2022-09-16T11:35:08+08:00 |ERROR| main.go:67 |Init database fail:unable to open database file: out of memory (14)
+2022-09-16T11:39:45+08:00 |INFO| main.go:49 |Go Version: go1.19.1
+2022-09-16T11:39:45+08:00 |INFO| main.go:50 |Go OS/Arch: windows/amd64
+2022-09-16T11:39:45+08:00 |INFO| main.go:52 |Rttys Version: 4.0.2
+2022-09-16T11:39:45+08:00 |INFO| device.go:388 |Listen device on: :5912 SSL off
+2022-09-16T11:39:45+08:00 |INFO| http.go:220 |Automatically select an available port for http proxy
+2022-09-16T11:39:45+08:00 |INFO| http.go:230 |Listen http proxy on: [::]:13405
+2022-09-16T11:39:45+08:00 |INFO| api.go:629 |Listen user on: :5913 SSL off
+2022-09-16T11:42:03+08:00 |INFO| main.go:49 |Go Version: go1.19.1
+2022-09-16T11:42:03+08:00 |INFO| main.go:50 |Go OS/Arch: windows/amd64
+2022-09-16T11:42:03+08:00 |INFO| main.go:52 |Rttys Version: 4.0.2
+2022-09-16T11:42:03+08:00 |INFO| device.go:388 |Listen device on: :5912 SSL off
+2022-09-16T11:42:03+08:00 |INFO| http.go:220 |Automatically select an available port for http proxy
+2022-09-16T11:42:03+08:00 |INFO| http.go:230 |Listen http proxy on: [::]:2086
+2022-09-16T11:42:03+08:00 |INFO| api.go:629 |Listen user on: :5913 SSL off
+2022-09-16T11:53:38+08:00 |INFO| main.go:49 |Go Version: go1.19.1
+2022-09-16T11:53:38+08:00 |INFO| main.go:50 |Go OS/Arch: windows/amd64
+2022-09-16T11:53:38+08:00 |INFO| main.go:52 |Rttys Version: 4.0.2
+2022-09-16T11:53:38+08:00 |INFO| device.go:388 |Listen device on: :5912 SSL off
+2022-09-16T11:53:38+08:00 |INFO| http.go:220 |Automatically select an available port for http proxy
+2022-09-16T11:53:38+08:00 |INFO| http.go:230 |Listen http proxy on: [::]:4974
+2022-09-16T11:53:38+08:00 |INFO| api.go:633 |Listen user on: :5913 SSL off
+2022-09-16T12:28:51+08:00 |INFO| main.go:49 |Go Version: go1.19.1
+2022-09-16T12:28:51+08:00 |INFO| main.go:50 |Go OS/Arch: windows/amd64
+2022-09-16T12:28:51+08:00 |INFO| main.go:52 |Rttys Version: 4.0.2
+2022-09-16T12:28:51+08:00 |INFO| device.go:388 |Listen device on: :5912 SSL off
+2022-09-16T12:28:51+08:00 |INFO| http.go:220 |Automatically select an available port for http proxy
+2022-09-16T12:28:51+08:00 |INFO| http.go:230 |Listen http proxy on: [::]:8856
+2022-09-16T12:28:51+08:00 |INFO| api.go:633 |Listen user on: :5913 SSL off
+2022-09-16T12:37:05+08:00 |ERROR| api.go:373 |管理员用户已存在，请勿重复注册!

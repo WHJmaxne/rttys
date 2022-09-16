@@ -28,6 +28,16 @@ func GenUniqueID(extra string) string {
 	return hex.EncodeToString(h.Sum(nil))
 }
 
+// GetMD5 generate a md5
+func GetMD5(extra string) string {
+
+	h := md5.New()
+	h.Write([]byte(extra))
+	re := h.Sum(nil)
+
+	return hex.EncodeToString(re)
+}
+
 // GenToken generate a token
 func GenToken() {
 	password, err := gopass.GetPasswdPrompt("Please set a password:", true, os.Stdin, os.Stdout)
