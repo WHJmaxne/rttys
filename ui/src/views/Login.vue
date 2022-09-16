@@ -36,7 +36,7 @@ export default {
     handleSubmit() {
       (this.$refs['login']).validate(valid => {
         if (valid) {
-          if (this.formData.username.length<=16) {
+          if (this.formData.username.length <= 16) {
             const params = {
               username: this.formData.username,
               password: this.formData.password
