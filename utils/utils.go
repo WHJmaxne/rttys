@@ -28,7 +28,7 @@ func GenUniqueID(extra string) string {
 	return hex.EncodeToString(h.Sum(nil))
 }
 
-// get md5
+// GetMD5 generate a md5
 func GetMD5(extra string) string {
 	h := md5.New()
 	h.Write([]byte(extra))
